@@ -57,7 +57,7 @@ async def delete():
             time.sleep(0.1)
 
 
-start_server = websockets.serve(echo, "localhost", PORT)
+start_server = websockets.serve(echo, "localhost", PORT,ping_timeout=None)
 loop = asyncio.get_event_loop()
 asyncio.ensure_future(start_server)
 asyncio.ensure_future(delete())

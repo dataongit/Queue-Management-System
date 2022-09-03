@@ -5,7 +5,7 @@ import os
 async def send():
     url = "ws://127.0.0.1:7900"
 
-    async with websockets.connect(url) as ws:
+    async with websockets.connect(url,ping_timeout=None) as ws:
             while True:
                 await ws.send("Status")
                 print(await ws.recv())
